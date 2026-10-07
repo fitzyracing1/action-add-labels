@@ -1,0 +1,21 @@
+360 Bench Add Labels
+Copyright 2020 The Actions Ecosystem Authors
+Modifications copyright 2026 Joshua Almeida
+
+This product is a modified version of Action Add Labels
+(https://github.com/actions-ecosystem/action-add-labels), copyright 2020
+The Actions Ecosystem Authors, licensed under the Apache License, Version 2.0
+(see LICENSE).
+
+Changes made by Joshua Almeida in 2026 for 360 Bench
+(https://github.com/fitzyracing1/360-bench), based on upstream commit 1a9c371:
+- action.yml: runtime changed from node12 to node24; name changed to
+  "360 Bench Add Labels" for the GitHub Marketplace. Inputs are unchanged.
+- package.json, package-lock.json, tsconfig.json: dependencies updated to
+  @actions/core 3 and @actions/github 9, built as an ES module with
+  @vercel/ncc 0.45 on Node 24; yarn.lock replaced by package-lock.json;
+  unused dependencies and the old eslint/jest setup removed.
+- dist/: rebuilt from the unchanged src/main.ts. Licenses of the bundled
+  third-party packages are listed in dist/licenses.txt.
+- test/: new end-to-end tests against a fake GitHub API.
+- README.md, NOTICE, .github/workflows/: rewritten for the fork.

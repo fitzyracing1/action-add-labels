@@ -1,19 +1,23 @@
 {
   "name": "action-add-labels",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
-  "description": "Add labels to an issue or a pull request",
-  "main": "lib/main.js",
+  "type": "module",
+  "description": "Add labels to an issue or a pull request (360 Bench fork on Node 24)",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "build": "tsc && ncc build",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
-    "test": "jest"
+    "build": "ncc build src/main.ts -o dist --license licenses.txt",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format-check": "prettier --check \"src/**/*.ts\"",
+    "test": "node --test \"test/*.test.mjs\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions-ecosystem/action-add-labels.git"
+    "url": "git+https://github.com/fitzyracing1/action-add-labels.git"
   },
   "keywords": [
     "actions",
@@ -21,29 +25,19 @@
     "labels"
   ],
   "author": "The Actions Ecosystem Authors",
-  "license": "Apache 2.0",
+  "contributors": [
+    "Joshua Almeida <fitzyracing1@gmail.com> (360 Bench fork)"
+  ],
+  "license": "Apache-2.0",
   "dependencies": {
-    "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0",
-    "@octokit/rest": "^18.12.0",
-    "semver": "^7.3.2"
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1"
   },
   "devDependencies": {
-    "@octokit/webhooks": "^7.6.2",
-    "@types/jest": "^25.2.3",
-    "@types/node": "^14.0.10",
-    "@types/semver": "^7.2.0",
-    "@typescript-eslint/parser": "^3.1.0",
-    "@vercel/ncc": "^0.36.1",
-    "eslint": "^6.8.0",
-    "eslint-plugin-github": "^2.0.0",
-    "eslint-plugin-jest": "^22.21.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "jest": "^24.9.0",
-    "jest-circus": "^26.0.1",
-    "js-yaml": "^3.14.0",
-    "prettier": "^2.0.5",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.9.3"
+    "@types/node": "^24.19.1",
+    "@vercel/ncc": "^0.45.0",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "yaml": "^2.9.1"
   }
 }

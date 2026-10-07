@@ -1,21 +1,23 @@
 name: Test
 
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v7
         with:
-          node-version: "12.x"
+          node-version: 24
 
-      - run: yarn install
-
-      - run: yarn test
-
-      - run: yarn format-check
-
-      - run: yarn lint
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run format-check
+      - run: npm run build
+      - name: dist is up to date
+        run: git diff --exit-code -- dist
+      - run: npm test

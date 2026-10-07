@@ -1,5 +1,5 @@
-name: Actions Ecosystem Add Labels
-description: Add labels to an issue or a pull request.
+name: 360 Bench Add Labels
+description: Add labels to an issue or a pull request. Fork of actions-ecosystem/action-add-labels on Node 24.
 author: The Actions Ecosystem Authors
 inputs:
   github_token:
@@ -17,7 +17,7 @@ inputs:
     description: The number of the issue or pull request.
     required: false
 runs:
-  using: node12
+  using: node24
   main: dist/index.js
 branding:
   icon: bookmark

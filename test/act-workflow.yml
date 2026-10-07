@@ -1,0 +1,21 @@
+# --bind mounts the working tree into the job container, so no checkout step.
+# Local end-to-end run with nektos/act against the fake GitHub API:
+#   node test/fake-github.mjs 8765 /tmp/requests.json &
+#   act workflow_dispatch -W test/act-workflow.yml -P ubuntu-latest=node:24-bookworm-slim --bind \
+#     --env GITHUB_API_URL=http://127.0.0.1:8765
+# (a step-level env cannot override GITHUB_API_URL, on GitHub or in act)
+name: act self-test
+on: workflow_dispatch
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - name: add labels with the local build
+        uses: ./
+        with:
+          github_token: ghs_act_token
+          repo: octo-org/hello-world
+          number: '42'
+          labels: |
+            bug
+            good first issue
