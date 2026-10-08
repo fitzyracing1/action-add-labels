@@ -11,6 +11,11 @@ updates:
       - dependencies
       - dependencies/dependabot
       - dependencies/npm
+    ignore:
+      # TypeScript 7 breaks the ncc build; stay on 5.x for now.
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
