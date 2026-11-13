@@ -39,5 +39,9 @@
     "prettier": "^3.9.9",
     "typescript": "^5.9.3",
     "yaml": "^2.9.1"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/fitzyracing1"
   }
 }
